@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Contact from "./components/Contact";
 import Thankspage from "./components/Thankspage";
 import SignUp from "./components/SignUp";
+import Login from "./components/Login";
 
 const App = () => {
 
@@ -12,13 +13,14 @@ const App = () => {
     return(
       <BrowserRouter>
         <div className="wrapper">
-          <nav>{<Navigation/>}</nav>
+          <nav>{<Navigation />}</nav>
             <div className="below-nav">
             <Routes>
-                <Route path="/" element={<Home/>} />
+                <Route path="/" element={<Home />} />
                 <Route path="/contact" element={<Contact/>} />
                 <Route path="/thankspage" element={<Thankspage/>} />
-                <Route path="/SignIn" element={<SignUp />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/login" element={<Login />} />
             </Routes>
             </div>
         </div>

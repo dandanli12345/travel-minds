@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { MapContainer, TileLayer, useMap, Marker, Popup, useMapEvent } from "react-leaflet";
+import { MapContainer, TileLayer, useMapEvent } from "react-leaflet";
 import axios from "axios";
 import youtube from "../apis/youtube";
 import Videos from "./Videos";
@@ -7,10 +7,11 @@ import Videos from "./Videos";
 
 const Globe = () => {
 
-  const key = "AIzaSyCuOfKjFzWHe5q_0Y7dS9BcwPWsV0p3iVc";
+  const key = process.env.REACT_APP_GOOGLE_MAP_KEY;
   const [videos,setVideos] = useState([]);
   const [cityAndState,setCityAndState] = useState("");
   const [clicked,setClicked] = useState(false);
+  const [fetching,setFetching] = useState(false);
 
   useEffect(()=>{
     console.log(videos);
@@ -42,6 +43,7 @@ const Globe = () => {
 
 
   const AddMarker = () => {
+    // eslint-disable-next-line
     const map = useMapEvent({
       async click(e){
         setClicked(true);
@@ -63,12 +65,15 @@ const Globe = () => {
         console.log(`${city} ${state}`);
         const toSearch = `${city} ${state} travel`;
 
+        setFetching(true);
         const response = await youtube.get('/search',{
           params:{
             q: toSearch
           }
         })
         const video30 = response.data.items;
+
+        //if fetching more than 3 videos later
 
         // let num = 0;
         // while(num < 3){
@@ -81,12 +86,7 @@ const Globe = () => {
 
         setVideos(video30);
         setCityAndState(`${city} ${state}`);
-
-        // return (
-        //   <Marker position={e.latlng}>
-        //     <Popup>Here!!</Popup>
-        //   </Marker>
-        // )
+        setFetching(false);
       }
     })
    }
@@ -99,7 +99,7 @@ const Globe = () => {
       />
       <AddMarker />
     </MapContainer>
-    <Videos videos={videos} setVideos={setVideos} cityAndState={cityAndState} clicked={clicked}/>
+    <Videos videos={videos} setVideos={setVideos} cityAndState={cityAndState} clicked={clicked} fetching = {fetching}/>
     </>
   );
 };

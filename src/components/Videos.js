@@ -1,24 +1,25 @@
 import React, { useEffect } from "react";
 import VideoItem from "./VideoItem";
 
-
-const Videos = ({videos,cityAndState,clicked}) => {
+const Videos = ({videos,cityAndState,clicked, fetching}) => {
 
     useEffect(()=>{
         console.log("videos from Videos component",videos);
     },[videos])
-    if(clicked && videos.length === 0){
-        return(
-            <>
-                <h3>Oops, seems no available videos here</h3>
-                <h3>Try another place?</h3>
-            </>
-        )
-    }
-    if(videos.length === 0){
-        return(
-            <h3>Click map to get videos!</h3>
-        )
+
+    if(!fetching && videos.length === 0){
+        if(clicked){
+            return(
+                <>
+                    <h3>Oops, seems no available videos here</h3>
+                    <h3>Try another place?</h3>
+                </>
+            )
+        }else{
+            return(
+                <h3>Click map to get videos!</h3>
+            )
+        }
     }
 
     const renderedVideos = videos.map((video)=>{
@@ -26,11 +27,10 @@ const Videos = ({videos,cityAndState,clicked}) => {
     })
     return(
         <>
-        <h3>{cityAndState}</h3>
-        <div className="videos">{renderedVideos}</div>
+            <h3>{cityAndState}</h3>
+            <div className="videos">{renderedVideos}</div>
         </>
     )
-
 }
 
 export default Videos;
