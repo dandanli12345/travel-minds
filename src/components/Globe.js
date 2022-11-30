@@ -51,6 +51,7 @@ const Globe = () => {
         //get the json location data from google map api
         let {data:result} = await axios.get(`https://maps.googleapis.com/maps/api/geocode/json?`+
         `latlng=${e.latlng.lat},${e.latlng.lng}&key=${key}`).catch(function(err){console.log(err)});
+        
 
         let parts = result.results[0].address_components;
 
