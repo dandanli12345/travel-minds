@@ -16,7 +16,7 @@ const Contact = ()=>{
 
     return (
         <div className="form">
-            <h1>Send me an email!</h1>
+            <h2>Send me an email</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="subject-email">
                     <input className = "small-input" type="subject" name="subject" placeholder="Subject" ></input>

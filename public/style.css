@@ -91,8 +91,12 @@ h3 {
     grid-template-columns: 1fr 1fr;
     justify-items: center;
     align-items: baseline;
-    grid-gap: 40px;
-   
+    grid-gap: 40px;  
+}
+
+.to-see-notes {
+    color:rgb(21, 72, 106);
+    
 }
 
 .list {
@@ -167,6 +171,7 @@ h3 {
     width:360px;
     margin:auto;
     padding:20px;
+    border-radius: 8px;
 }
 
 .signup-form div {
@@ -253,14 +258,14 @@ button {
 
 @media screen and (max-width: 830px) {
     .email-text {
-        width:90%;
+        width:70%;
         height:100px;
     }
     .small-input {
         margin:5px;
         border-radius: 8px;
         height:30px;
-        width:90%;
+        width:70%;
     }
 
     nav {
@@ -293,6 +298,14 @@ button {
 
     h2 {
         font-size: 20px;
+    }
+
+    h3 {
+        font-size:16px;
+    }
+
+    .signup-form {
+        width:220px;
     }
 
 }

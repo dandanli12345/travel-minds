@@ -31,7 +31,7 @@ const Home = () => {
                         <AddNote currentUser={currentUser}/>
                     </div> 
                 : 
-                <h3>Log in to make notes</h3>
+                <h3 className="to-see-notes">Log in to make notes</h3>
                 }
 
             </div>
