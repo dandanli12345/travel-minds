@@ -32,7 +32,7 @@ const AddNote = () => {
         <>
           <form className='addNoteForm' onSubmit={handleSubmit}>
 
-            <h2>Add  A  Note</h2>
+            <h2 className="to-see-notes">Add  A  Note</h2>
 
             <div>
               <label htmlFor='title'></label>

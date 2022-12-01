@@ -63,7 +63,7 @@ const Globe = () => {
             state = element.long_name;
           }
         });
-        console.log(`${city} ${state}`);
+        // console.log(`${city} ${state}`);
         const toSearch = `${city} ${state} travel`;
 
         setFetching(true);

@@ -45,7 +45,7 @@ const NotesList = ({currentUser}) => {
     return(
         <>
             <ul className="list">
-            {notes.length?<h2>My Notes</h2>:null}
+            {notes.length?<h2 className="to-see-notes">My Notes</h2>:null}
             <div className="notes">
                 {notes.map((note,i) => {
                     return(
