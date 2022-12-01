@@ -4,7 +4,7 @@ import VideoItem from "./VideoItem";
 const Videos = ({videos,cityAndState,clicked, fetching}) => {
 
     useEffect(()=>{
-        console.log("videos from Videos component",videos);
+        console.log("videos");
     },[videos])
 
     if(!fetching && videos.length === 0){
