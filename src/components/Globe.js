@@ -14,7 +14,7 @@ const Globe = () => {
   const [fetching,setFetching] = useState(false);
 
   useEffect(()=>{
-    console.log(videos);
+    // console.log(videos);
     setCityAndState(cityAndState);
     // eslint-disable-next-line
   },[videos]);
